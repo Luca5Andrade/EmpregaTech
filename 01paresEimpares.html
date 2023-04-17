@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="saida"></div>
+
+    <script>
+        let pares = 0;
+        let impares = 0;
+        let porImpares = 0;
+        let porPares = 0;
+        let total = 10;
+
+        for (let i = 1; i <= 10; i++){
+            let numero = Number(prompt(`Digite o ${i}° Número:`))
+
+            if(numero % 2 == 0){
+                pares = pares + numero;
+                porPares++
+            }else{
+                impares = impares + numero;
+                porImpares++
+            }
+        }
+
+        saida.innerHTML = `Soma dos números pares: ${pares} <br> \n Soma dos números ímpares: ${impares}<br> \n Porcentagem dos números pares: ${(porPares/total)*100}% <br> \n Porcentagem dos números impares: ${(porImpares/total)*100}%`;
+
+    </script>
+</body>
+</html>

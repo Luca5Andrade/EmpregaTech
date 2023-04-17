@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = parseFloat(prompt("Digite o primeiro número: "));
+        let num2 = parseFloat(prompt("Digite o segundo número: "));
+        let num3 = parseFloat(prompt("Digite o terceiro número: "));
+
+        let maior = encontraMaior(num1, num2, num3);
+        let menor = encontraMenor(num1, num2, num3);
+
+        function encontraMaior(n1, n2, n3) {
+        if (n1 >= n2 && n1 >= n3) {
+        return n1;
+        }else if (n2 >= n1 && n2 >= n3) {
+        return n2;
+        } else {
+        return n3;
+  }
+}
+
+        function encontraMenor(n1, n2, n3) {
+        if (n1 <= n2 && n1 <= n3) {
+        return n1;
+        } else if (n2 <= n1 && n2 <= n3) {
+        return n2;
+        } else {
+        return n3;
+  }
+}
+    
+        alert(`O maior número é: ${maior}\nO menor número é: ${menor}`);
+
+    </script>
+</body>
+</html>

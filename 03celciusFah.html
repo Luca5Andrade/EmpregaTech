@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="saida"></div>
+    <script>
+
+        function celsius(tempCelsius){
+        let tempFah = (tempCelsius * 9/5) + 32;
+        return tempFah;
+        }
+
+        function fah(tempFah){
+        let tempCelsius = (tempFah - 32)* 5/9;
+        return tempCelsius;
+        }
+
+        let tipoConversao = prompt("Digite 'CF' para converter Celsius para Fahrenheit ou 'FC' para converter Fahrenheit para Celsius:")
+
+        if (tipoConversao === "CF"){
+            let temp = parseFloat(prompt('Digite a temperatura em graus Celsius'));
+            let tempFah = celsius(temp);
+
+        alert(`${temp} graus Celsius é igual a ${tempFah} graus Fahrenheit`)
+        }
+
+        if(tipoConversao === "FC"){
+            let tempFah = parseFloat(prompt('Digite a temperatura em graus Fahrenheit'))
+            let tempCelsius = fah(tempFah)
+
+        alert(`${tempFah} graus Fahrenheit é igual a ${tempCelsius} graus Celsius`)
+        }else {
+        alert('Opção inválida');
+        }
+    </script>
+</body>
+</html>

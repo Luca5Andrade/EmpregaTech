@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let valorTotal = 0;
+
+        while (true) {
+        let codigo = parseInt(prompt("Digite o código do produto (ou '0' para finalizar):"));
+  
+        if (codigo === 0) {
+            break;
+        }
+  
+        let quantidade = parseInt(prompt("Digite a quantidade:"));
+  
+        let preco;
+        switch (codigo) {
+
+        case 100:
+        preco = 10.9;
+            break;
+
+        case 101:
+        preco = 8.9;
+            break;
+
+        case 102:
+        preco = 14.9;
+            break;
+
+        case 103:
+        preco = 13.9;
+            break;
+
+        case 104:
+        preco = 16.9;
+            break;
+
+        case 105:
+        preco = 22.9;
+            break;
+
+        case 106:
+        preco = 4.9;
+            break;
+
+        default:
+        alert("Código inválido!");
+            continue;
+        }
+  
+        let valorItem = preco * quantidade;
+        valorTotal = valorTotal + valorItem;
+        }
+
+        alert(`Valor total dos pedidos: R$${valorTotal.toFixed(2)}`);
+    </script>
+</body>
+</html>
