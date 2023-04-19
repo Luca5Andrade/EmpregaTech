@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sorteio = parseInt(Math.random())
+
+        alert(`O numero escolhido foi ${sorteio}`)
+
+        if(sorteio === 0){
+            let j1 = prompt(" Jogador 1 escolha 'PAR' ou 'IMPAR' para escolher")
+            if(j1 === "PAR"){
+                let jogador1 = Number(prompt('Jogador 1 digite um numero de 0 á 10'))
+                let jogador2 = Number(prompt('Jogador 2 digite um numero de 0 á 10'))
+                if((jogador1+jogador2)%2 === 0){
+
+                    alert(`O vencedor foi o Jogador 1`)
+                }
+                else {
+                    alert(`O vencedor foi o Jogador 2`)
+                }
+            }
+            if(sorteio === 1){
+            let j2 = prompt(" Jogador 2 escolha 'PAR' ou 'IMPAR' para escolher")
+            if(j2 === "PAR"){
+                jogador1 = Number(prompt('Digite um numero de 0 á 10'))
+                jogador2 = Number(prompt('Digite um numero de 0 á 10'))
+                if((jogador1+jogador2)%2 === 0){
+                    alert(`O Vencedor foi o Jogador 2`)
+                }else{
+                    alert(`O Vencedor foi o Jogador 1`)
+                }
+            }
+        }
+    }
+        
+
+    </script>
+</body>
+</html>
