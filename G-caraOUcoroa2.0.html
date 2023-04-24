@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jogador1 = prompt("Escolha 'CARA' ou 'COROA': ")
+        let CaraCoroa = parseInt(Math.random()*2)
+        let Vencedor = decidirVencedor()
+        if(CaraCoroa === 0){
+            alert('A Moeda Girou e deu Cara')
+        }else{
+            alert('A Moeda Girou e deu Coroa')
+        }
+
+        function decidirVencedor(){
+            if(jogador1 === "CARA" && CaraCoroa === 0 || jogador1 === "COROA" && CaraCoroa === 1){
+                return 'Jogador'
+            }else{
+                return 'PC'
+            }
+        }
+        alert(`O vencedor foi o ${Vencedor}`)
+    </script>
+</body>
+</html>

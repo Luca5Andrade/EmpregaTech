@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="saida"></div>
+    <script>
+        
+        const opcoes = ['Par', 'Impar']
+
+        escolherVencedor();
+        
+        function escolherVencedor(){
+            let vencedor;
+            let voce = 0
+            let maquina = 0
+            let parOUimpar;
+            for (let i = 1; i <= 10; i++){
+                let jogador = Number(prompt(`Escolha: \n (0)Par \n (1)Impar \n (2)Sair`));
+
+                if(jogador === 2){
+                    if(voce === maquina){
+                        saida.innerHTML = `O Jogo Ficou Empatado`
+                    }else if(voce > maquina){
+                        saida.innerHTML = `Você Ganhou do PC! Ficou ${voce} á ${maquina}`
+                    }else{
+                        saida.innerHTML = `Você Perdeu do PC! Ficou ${voce} á ${maquina}`
+                    }
+                    break;
+                }
+                let PC = parseInt(Math.random()*2)
+                let jogador1 = Number(prompt('Digite um numero'))
+                
+                if(jogador === 0 && (jogador1+PC)%2 === 0 || jogador === 1 && (jogador1+PC)%2 === 1){
+                    vencedor = 'Você Ganhou'
+                    voce++
+                    if(jogador === 0){
+                        parOUimpar = 'Par'
+                    }else{
+                        parOUimpar = 'Impar'
+                    }
+                }else{
+                    vencedor = 'PC Ganhou'
+                    maquina++
+                    if(jogador === 0){
+                        parOUimpar = 'Impar'
+                    }else{
+                        parOUimpar = 'Par'
+                    }
+                }
+                
+                alert(` Você Escolheu ${opcoes[jogador]} e Escolheu o Numero ${jogador1} + ${PC}.\n Deu ${parOUimpar}.\n Esta ${voce} X ${maquina}`)
+            }
+            if(jogador != 2){
+            if(voce === maquina){
+                saida.innerHTML = `O Jogo Ficou Empatado`
+            }else if(voce > maquina){
+                saida.innerHTML = `Você Ganhou uma MD10 do PC! Ficou ${voce} á ${maquina}`
+            }else{
+                saida.innerHTML = `Você Perdeu uma MD10 do PC! Ficou ${voce} á ${maquina}`
+            }
+        }
+    }
+    </script>
+</body>
+</html>

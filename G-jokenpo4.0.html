@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jokenpo</title>
+</head>
+<body>
+    <div id="saida"></div>
+    <script>
+        const opcoes = ['Pedra', 'Papel', 'Tesoura'];
+        escolherVencedor();
+
+        function escolherVencedor() {
+        let vencedor;
+        let voce = 0;
+        let maquina = 0;
+        let Empate = 0
+
+        for (let i = 1; i <= 10; i++) {
+        let jogador = Number(prompt(`Escolha: \n (0)Pedra \n (1)Papel \n (2)Tesoura \n (3)Sair`));
+
+        if (jogador === 3) {
+            if(voce === maquina){
+                saida.innerHTML = `Acabou Empatado! Ficou ${voce} á ${maquina}`
+            }else if(voce>maquina){
+                saida.innerHTML = `Você Ganhou do PC! Ficou ${voce} á ${maquina} com ${Empate} Empates`
+            }else{
+                saida.innerHTML = `Você Perdeu do PC! Ficou ${maquina} á ${voce} com ${Empate} Empates`
+            }
+            break;
+        }
+
+        let pc = parseInt(Math.random() * 3);
+
+        if (jogador === pc) {
+            vencedor = 'Empate, Tente Novamente';
+            Empate++
+        } else if ((jogador === 0 && pc === 2) || (jogador === 1 && pc === 0) || (jogador === 2 && pc === 1)) {
+            vencedor = 'Você Ganhou, Parabéns!';
+            voce++
+        } else {
+            vencedor = 'PC Ganhou, Tente Novamente';
+            maquina++
+        }
+        alert(`Você escolheu ${opcoes[jogador]} e o PC escolheu ${opcoes[pc]}. ${vencedor}. Está ${voce} X ${maquina}`);
+  }
+        if(jogador != 3){
+        if(voce === maquina){
+            saida.innerHTML = `Acabou Empatado! Ficou ${voce} á ${maquina}`
+        }
+        if(voce>maquina){
+            saida.innerHTML = `Você Ganhou uma MD10 do PC! Ficou ${voce} á ${maquina} com ${Empate} Empates`
+        }else{
+            saida.innerHTML = `Você Perdeu uma MD10 do PC! Ficou ${maquina} á ${voce} com ${Empate} Empates`
+    }
+}
+}
+
+    </script>
+</body>
+</html>
