@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slider {
+            display: block;
+            height: 293px;
+            width: 600px;
+            margin: auto;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .slider li {
+            list-style: none;
+            position: absolute;
+        }
+
+        .slider img {
+            margin: auto;
+            height: 100%;
+            width: 100%;
+            vertical-align: top;
+        }
+
+        .slider input {
+            display: none;
+        }
+
+        .slider label {
+            background-color: white;
+            border-radius: 50%;
+            bottom: 10px;
+            cursor: pointer;
+            display: block;
+            height: 10px;
+            position: absolute;
+            width: 10px;
+            z-index: 10;
+        }
+
+        .slider li:nth-child(1) label {
+            left: 10px;
+        }
+
+        .slider li:nth-child(2) label {
+            left: 40px;
+        }
+
+        .slider li:nth-child(3) label {
+            left: 70px;
+        }
+
+        .slider img {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .slider li input:checked ~ img {
+            opacity: 1;
+            visibility: visible;
+            z-index: 10;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-arrow.prev {
+            left: 10px;
+        }
+
+        .slider-arrow.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="slider">
+        <li>
+            <input type="radio" id="slide1" name="slide" checked>
+            <label for="slide1"></label>
+            <img src="img/slide1.jpg" alt="">
+        </li>
+        <li>
+            <input type="radio" id="slide2" name="slide">
+            <label for="slide2"></label>
+            <img src="img/slide2.jpg" alt="">
+        </li>
+        <li>
+            <input type="radio" id="slide3" name="slide">
+            <label for="slide3"></label>
+            <img src="img/slide3.jpg" alt="">
+        </li>
+    </ul>
+
+    <div class="slider-arrow prev">&lt;</div>
+    <div class="slider-arrow next">&gt;</div>
+
+    <script>
+        (function() {
+            var slides = document.querySelectorAll('.slider li');
+            var currentSlide = 0;
+            var slideInterval = setInterval(nextSlide, 3000); // Define o intervalo de tempo para trocar os slides (3000ms = 3 segundos)
+
+            function nextSlide() {
+                slides[currentSlide].querySelector('input').checked = false;
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].querySelector('input').checked = true;
+            }
+
+            var prevArrow = document.querySelector('.slider-arrow.prev');
+            var nextArrow = document.querySelector('.slider-arrow.next');
+
+            prevArrow.addEventListener('click', function() {
+                slides[currentSlide].querySelector('input').checked = false;
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                slides[currentSlide].querySelector('input').checked = true;
+            });
+
+            nextArrow.addEventListener('click', function() {
+                slides[currentSlide].querySelector('input').checked = false;
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].querySelector('input').checked = true;
+            });
+        })();
+    </script>
+</body>
+</html>
