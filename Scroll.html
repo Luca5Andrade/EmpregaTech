@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuma Sushi</title>
+    <style>
+    body{
+        background-color: #FCDCE9;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container img {
+        width: 301px;
+        height: 301px;
+        display: block;
+        top: 10px;
+    }
+
+    .overlay-container h1{
+        margin: auto;
+        top: 240px;
+
+        font-family: 'Patrick Hand';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 60px;
+        line-height: 81px;
+        text-align: center;
+        text-transform: uppercase;
+
+        border: 2px solid #C6566F;
+        width: 25%;
+        background-color: white;
+    }
+
+    .esquerda{
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 130px;
+        height: 79px;
+        left: 445px;
+        top: 263px;
+
+        background: #FFFFFF;
+        border: 2px solid #C6566F;
+        transform: rotate(90deg);
+    }
+
+    .overlay-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 90px;
+        left: 120px;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s;
+    }
+
+    .overlay-container:hover .overlay {
+        opacity: 1;
+    }
+
+    .search-form {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .embaixo{
+        margin-top: 70%;
+    }
+    .tela{
+        overflow: auto;
+    }
+
+    .tela::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .tela::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+    </style>
+</head>
+<body>
+    <div class="overlay-container">
+        <h1>Kuma Sushi</h1>
+        <img src="" alt="">
+        <div class="overlay"></div>
+    </div>
+      
+    <form action="#" method="GET" class="search-form" onsubmit="search(event)">
+        <input type="text" name="search" placeholder="Digite sua pesquisa">
+        <button type="submit">Buscar</button>
+    </form>
+      
+    <h2 id="sushi">Sushi</h2>
+    <!-- Conteúdo relacionado a sushi -->
+      
+    <h2 id="sashimi" class="embaixo">Sashimi</h2>
+    <!-- Conteúdo relacionado a sashimi -->
+      
+    <!-- Mais conteúdo... -->
+
+    <script>
+        function search(event) {
+            event.preventDefault();
+
+            var searchTerm = document.querySelector('input[name="search"]').value.toLowerCase();
+
+            if (searchTerm === 'sushi') {
+                // Direciona para a seção de sushi
+                window.location.href = '#sushi';
+            } else if (searchTerm === 'sashimi') {
+                // Direciona para a seção de sashimi
+                window.location.href = '#sashimi';
+            } else {
+                console.log('Termo de pesquisa não reconhecido.');
+            }
+        }
+    </script>
+</body>
+</html>
