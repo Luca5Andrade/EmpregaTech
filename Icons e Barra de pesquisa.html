@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barra de Pesquisa - Restaurante Japonês</title>
+  <script src="https://kit.fontawesome.com/e44689bc34.js" crossorigin="anonymous"></script>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      flex-grow: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-results {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .search-results li {
+      margin-bottom: 10px;
+    }
+
+    .search-results a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Estilos adicionais para as seções */
+    h3 {
+      margin-top: 40px;
+    }
+
+    .section {
+      margin-bottom: 740px;
+    }
+  </style>
+</head>
+<body>
+        <i class="fa-solid fa-address-book"></i>
+
+        <i class="fa-solid fa-house"></i>
+
+        <i class="fa-solid fa-paw"></i>
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+        <i class="fa-solid fa-calendar-week"></i>
+
+        <i class="fa-solid fa-utensils"></i>
+
+        <i class="fa-solid fa-heart"></i>
+
+        <i class="fa-sharp fa-solid fa-window-maximize"></i>
+
+        <i class="fa-sharp fa-solid fa-window-minimize"></i>
+
+        <i class="fa-sharp fa-solid fa-x"></i>
+
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+
+  <div class="container">
+    <h2>Barra de Pesquisa - Kumu sushi</h2>
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Pesquisar...">
+      <span class="search-button"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </div>
+    <ul class="search-results">
+      <!-- Os resultados da pesquisa serão exibidos aqui -->
+    </ul>
+    <div class="section" id="sushi">
+      <h3>Sushi</h3>
+      <ul class="menu-items">
+        <li class="menu-item">Sushi de salmão</li>
+        <li class="menu-item">Sushi de atum</li>
+        <li class="menu-item">Sushi de camarão</li>
+      </ul>
+    </div>
+    <div class="section" id="sashimi">
+      <h3>Sashimi</h3>
+      <ul class="menu-items">
+        <li class="menu-item">Sashimi de salmão</li>
+        <li class="menu-item">Sashimi de atum</li>
+        <li class="menu-item">Sashimi de polvo</li>
+      </ul>
+    </div>
+    <div class="section" id="comidas-quentes">
+      <h3>Comidas Quentes</h3>
+      <ul class="menu-items">
+        <li class="menu-item">Yakissoba</li>
+        <li class="menu-item">Tempurá</li>
+        <li class="menu-item">Missoshiru</li>
+      </ul>
+    </div>
+    <div class="section" id="sobremesas">
+      <h3>Sobremesas</h3>
+      <ul class="menu-items">
+        <li class="menu-item">Tempura de sorvete</li>
+        <li class="menu-item">Mochi</li>
+        <li class="menu-item">Dorayaki</li>
+      </ul>
+    </div>
+    <div class="section" id="bebidas">
+      <h3>Bebidas</h3>
+      <ul class="menu-items">
+        <li class="menu-item">Chá verde</li>
+        <li class="menu-item">Saquê</li>
+        <li class="menu-item">Sake</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Função para realizar a pesquisa
+    function search() {
+      var input = document.querySelector('.search-input');
+      var searchText = input.value.toLowerCase();
+      var results = document.querySelector('.search-results');
+
+      // Limpa os resultados anteriores
+      results.innerHTML = '';
+
+      // Verifica cada item da lista
+      var items = document.querySelectorAll('.menu-item');
+      items.forEach(function(item) {
+        var itemName = item.textContent.toLowerCase();
+
+        // Se o nome do item corresponder à pesquisa, adiciona-o aos resultados
+        if (itemName.indexOf(searchText) !== -1) {
+          var li = document.createElement('li');
+          var link = document.createElement('a');
+          var sectionId = item.closest('.section').id;
+          link.href = '#' + sectionId;
+          link.textContent = item.textContent;
+          li.appendChild(link);
+          results.appendChild(li);
+        }
+      });
+
+      // Se não houver resultados, exibe uma mensagem
+      if (results.childElementCount === 0) {
+        var li = document.createElement('li');
+        li.textContent = 'Nenhum resultado encontrado.';
+        results.appendChild(li);
+      }
+
+      // Rolar para a seção correspondente após a pesquisa
+      var section = document.querySelector('#' + searchText);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Chama a função de pesquisa quando o botão é clicado
+    var button = document.querySelector('.search-button');
+    button.addEventListener('click', search);
+
+    // Chama a função de pesquisa ao pressionar a tecla "Enter" no campo de pesquisa
+    var input = document.querySelector('.search-input');
+    input.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        search();
+      }
+    });
+  </script>
+</body>
+</html>
